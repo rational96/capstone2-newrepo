@@ -13,7 +13,7 @@ phases:
   pre_build:
     commands:
       - echo Logging into Amazon EKS...
-      - aws eks --region us-east-1 update-kubeconfig --name group4-app
+      - aws eks --region us-west-2 update-kubeconfig --name group4-app
       - echo check config
       - kubectl config view --minify
       - echo check kubectl access
@@ -27,7 +27,6 @@ phases:
       - docker tag trql-ecr-repo:latest 962804699607.dkr.ecr.us-west-2.amazonaws.com/trql-ecr-repo:latest
   post_build:
     commands:
-      - echo build Docker image complete `date`
       - echo push latest Docker images to ECR...
       - docker push 962804699607.dkr.ecr.us-west-2.amazonaws.com/trql-ecr-repo:latest
       - kubectl apply -f deployment.yaml
