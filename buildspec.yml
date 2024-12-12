@@ -21,4 +21,3 @@ phases:
     - printf '[{"name":"Capstone2Group1","imageUri":"962804699607.dkr.ecr.us-west-2.amazonaws.com/capstone2/group1afternoon:latest"}]' > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
-has context menu
